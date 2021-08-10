@@ -1,36 +1,26 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Rate.aspx.cs" Inherits="WebApplication1.Rate" %>
 
-namespace WebApplication1
-{
-    public partial class Rate : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            TextBox1.Visible = false;
-        }
+<!DOCTYPE html>
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Session["Rate"] = DropDownList1.SelectedItem.Text;
-            if (Session["Rate"].Equals("Gold"))
-            {
-              
-                TextBox1.Visible = true;
-                TextBox1.Text="4000";
-
-
-            }
-            if (Session["Rate"].Equals("Silver"))
-            {
-                TextBox1.Visible = true;
-                TextBox1.Text = "450";
-            }
-          
-        }
-    }
-}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+             <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:ListItem >Select</asp:ListItem>
+                    <asp:ListItem Value="Gold">Gold</asp:ListItem>
+                    <asp:ListItem Value="Silver">Silver</asp:ListItem>
+                    </asp:DropDownList>
+             <br />
+             <br />
+             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+             <br />
+             <br />
+             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+        </div>
+    </form>
+</body>
+</html>
