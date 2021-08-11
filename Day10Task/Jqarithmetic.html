@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+
+        .bgclass {
+            background-color: cornsilk;
+            border: 10px solid white;
+            width: 1780px;
+            height: 810px;
+        }
+
+        .class2 {
+            margin: auto;
+            width: 750px;
+            height: 570px;
+            border: 5px solid pink;
+            background-color: powderblue;
+            background-repeat: no-repeat;
+            color: black;
+            background-size: 100%;
+            font-family: Didot;
+            font-size: 150%;
+            line-height: 60px;
+            text-align: center;
+        }
+
+        .button {
+            background-color: oldlace;
+            text-align: center;
+            display: inline-block;
+            font-size: 20px;
+        }
+    </style>
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+    <script>      
+        $(document).ready(function () {
+            $("#btn1").on("click", function () {
+                var num1 = $("#txt1").val();
+                var num2 = $("#txt2").val();
+                var answer = parseInt(num1) + parseInt(num2);
+                alert(answer);
+
+            });
+        });
+        $(document).ready(function () {
+            $("#btn2").on("click", function () {
+                var num1 = $("#txt1").val();
+                var num2 = $("#txt2").val();
+                var answer = parseInt(num1) - parseInt(num2);
+                alert(answer);
+
+            });
+        });
+        $(document).ready(function () {
+            $("#btn3").on("click", function () {
+                var num1 = $("#txt1").val();
+                var num2 = $("#txt2").val();
+                var answer = parseInt(num1) * parseInt(num2);
+                alert(answer);
+
+            });
+        });
+        $(document).ready(function () {
+            $("#btn4").on("click", function () {
+                var num1 = $("#txt1").val();
+                var num2 = $("#txt2").val();
+                var answer = parseInt(num1) / parseInt(num2);
+                alert(answer);
+
+            });
+        });
+            
+    </script>
+</head>
+<body>
+    <div class="bgclass">
+        <div class="class2" align="center">
+            <h1>Arithmetic Operations</h1>
+            <b>Enter first number:</b>
+            <input type="text" id="txt1" /><br />
+            <b>Enter second number:</b>
+            <input type="text" id="txt2" /><br />
+            <input type="button" id="btn1" class="button" value="Add" />
+            <input type="button" id="btn2" class="button" value="Sub"  /><br />
+            <input type="button" id="btn3" class="button" value="Multi"  />
+            <input type="button" id="btn4" class="button" value="Div" /><br />
+        </div>
+    </div>
+</body>
+</html>
