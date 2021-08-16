@@ -1,0 +1,93 @@
+create table Customer
+(
+CustomerId int,
+Name varchar(20),
+City varchar(20),
+Email varchar(50),
+Phone int,
+constraint PK_id Primary key (CustomerId)
+)
+
+
+create table Product
+(
+ProductCode int,
+Name varchar(20),
+Price int,
+constraint PK_pc Primary key (ProductCode)
+)
+
+
+create table [Order]
+(
+OrderId int,
+CustomerID int,
+OrderDate date default getdate(),
+constraint PK_oid Primary key (OrderId),
+constraint FK_cid Foreign key (CustomerID) references Customer(CustomerID)
+)
+
+create table OrderItems
+(
+Tno int,
+Orderid int,
+ProductCode int,
+Quantity int,
+constraint PK_no Primary key (Tno),
+constraint FK_oid Foreign key (ProductCode) references Product(ProductCode)
+)
+
+insert into Customer values (1,'Prinsi', 'Chennai', 'abc@abc.com', 1234567890)
+insert into Customer values (2,'Nithish', 'Chennai', 'def@abc.com', 1234567891)
+insert into Customer values (3,'Dharanika', 'Thiruvallur', 'ghi@abc.com', 1234567881)
+insert into Customer values (4,'Siva', 'Thiruvallur', 'mno@abc.com', 1234567899)
+
+insert into Product values (101, 'T-shirt', 130)
+insert into Product values (102, 'Jeans', 399)
+insert into Product values (103, 'Shorts', 150)
+insert into Product values (104, 'Shirts', 299)
+
+insert into [Order] (OrderId,CustomerID) values (1001, 1 )
+insert into [Order] (OrderId,CustomerID) values (1002, 2 )
+insert into [Order] (OrderId,CustomerID) values (1003, 3 )
+insert into [Order] (OrderId,CustomerID) values (1004, 4 )
+
+insert into OrderItems values (1, 1001, 103, 3)
+insert into OrderItems values (2, 1001, 101, 3)
+insert into OrderItems values (3, 1002, 102, 1)
+insert into OrderItems values (4, 1002, 104, 2)
+insert into OrderItems values (5, 1004, 104, 2)
+
+update OrderItems set Quantity=2 where Tno=3
+delete from OrderItems where Tno=3
+delete from [Order] where Orderid=1003
+
+select * from Customer
+select * from Product
+select * from [Order]
+select * from OrderItems
+
+select upper(city) as CustomerCity, * from Customer
+select min(price), max(price) from Product
+select Day(OrderDate) from [Order]
+
+select c.Name,c.City, o.Orderid from Customer c 
+inner join [Order] o on c.CustomerId=o.CustomerID
+
+select c.name, p.name, o.orderid, t.quantity from [order] o 
+inner join customer c on c.CustomerId=o.CustomerID
+inner join OrderItems t on t.Orderid=o.OrderId
+inner join Product p on p.ProductCode=t.ProductCode
+
+
+
+select t.OrderId,o.CustomerID, o.OrderDate, sum(t.Quantity * p.Price) as Amount from OrderItems t
+inner  join [order] o  on t.Orderid=o.OrderId
+left join Product p on p.ProductCode=t.ProductCode
+group by  t.OrderId, o.CustomerID, o.OrderDate
+
+
+
+
+
+
