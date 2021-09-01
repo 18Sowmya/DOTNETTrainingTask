@@ -1,0 +1,46 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+@model System.Data.DataTable
+
+@{
+    ViewBag.Title = "AllocateRecord";
+}
+
+<h2>AllocateRecord</h2>
+
+<html>
+<head>
+
+</head>
+
+<body>
+    <table border="2" cellpadding="2">
+        <thead>
+
+
+            <tr>
+                <td>Employee ID</td>
+                <td>Employee Name</td>
+                <td>Location</td>
+                <td>Vehicle ID</td>
+
+            </tr>
+        </thead>
+        @foreach (DataRow dr in Model.Rows)
+        {
+            <tr>
+                <td>@dr["EmployeeId"].ToString()</td>
+                <td>@dr["EmployeeName"].ToString()</td>
+                <td>@dr["Locations"].ToString()</td>
+                <td>@dr["VehicleID"].ToString()</td>
+
+                <td>@Html.ActionLink("Allocate", "AllocateEdit", new { Employeeid = dr["Employeeid"].ToString() })</td>
+
+            </tr>
+        }
+    </table>
+
+
+</body>
+</html>
+

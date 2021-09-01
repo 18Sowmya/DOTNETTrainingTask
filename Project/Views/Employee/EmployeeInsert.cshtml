@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "EmployeeInsert";
+}
+
+<h2>EmployeeInsert</h2>
+
+<form id="frRoute" method="post" action=@Url.Action("InsertEmployee")>
+    Employee ID: <input type="text" name="txtemployeeid" /><br />
+    Employee Name: <input type="text" name="txtemployeename" /><br />
+    Age: <input type="text" name="txtage" /><br />
+    Location: <input type="text" name="txtlocations" /><br />
+    Phone: <input type="text" name="txtphone" /><br />
+    Vehicle ID: <input type="text" name="txtvehicleid" /><br />
+<input type="submit" value="Submit" name="action">
+<input type="submit" value="Cancel" name="action">
+</form>
+

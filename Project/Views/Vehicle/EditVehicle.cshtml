@@ -1,0 +1,44 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+@model System.Data.DataTable
+@{
+    ViewBag.Title = "EditVehicle";
+}
+
+<h2>EditVehicle</h2>
+
+<body>
+    <form id="frmEdit" method="post" action=@Url.Action("UpdateVehicle")>
+        <table border="2" cellpadding="2">
+            <tr>
+                <td>Vehicle Number:</td>
+                <td><input type="text" name="txtvehicle" value="@Model.Rows[0]["VehicleNumber"]" /></td>
+            <tr />
+            <tr>
+                <td> Capacity:</td>
+                <td>
+                    <input type="text" name="txtcapacity" value="@Model.Rows[0]["Capacity"]" />
+                </td>
+            </tr>
+            <tr>
+                <td>AvailableSeats:</td>
+                <td><input type="text" name="txtavailable" value="@Model.Rows[0]["AvailableSeats"]" /></td>
+            <tr />
+            <tr>
+                <td>
+                    Operable:</td>
+                    <td><input type="text" name="txtoperable" value="@Model.Rows[0]["IsOperable"]" />
+                </td>
+            </tr>
+
+            <tr>
+                <td> <input type="submit" value="Submit" name="action">
+                </td>
+                <td> <input type="submit" value="Cancel" name="action">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+

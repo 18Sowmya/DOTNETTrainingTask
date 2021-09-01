@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "AllocateEdit";
+}
+
+<h2>AllocateEdit</h2>
+<table border="2" cellpadding="2">
+
+
+    <form id="frmEdit1" method="post" action=@Url.Action("UpdateVehicleAllocate")>
+        <tr>
+            <td> Employee ID: </td>
+            <td><input type="text" name="txtemployeeid" value="@Model.Rows[0]["EmployeeID"]" </td>
+        </tr>
+        <tr>
+            <td> Employee Name: </td>
+            <td><input type="text" name="txtemployeename" value="@Model.Rows[0]["EmployeeName"]" </td>
+        </tr>
+        <tr>
+            <td> Location: </td>
+            <td><input type="text" name="txtlocations" value="@Model.Rows[0]["Locations"]" </td>
+        </tr>
+        <tr>
+            <td> Vehicle ID: </td>
+            <td><input type="text" name="txtvehiclenumber" value="@Model.Rows[0]["VehicleNumber"]" </td> @*Route VehicleNumber textbox fetched*@
+        </tr>
+
+        <tr>
+            <td> <input type="submit" value="Submit" name="action"></td>
+            <td><input type="submit" value="Cancel" name="action"></td>
+        </tr>
+    </form>
+    </table>
+

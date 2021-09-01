@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "RouteInsert";
+}
+
+<h2>RouteInsert</h2>
+
+<form id="frRoute" method="post" action=@Url.Action("InsertRoute")>
+    Route Number: <input type="text" name="txtrootnumber" /><br />
+    Vehicle Number: <input type="text" name="txtvehiclenumber" /><br />
+    Stop1: <input type="text" name="txtstop1" /><br />
+    Stop2: <input type="text" name="txtstop2" /><br />
+    Stop3: <input type="text" name="txtstop3" /><br />
+    <input type="submit" value="Submit" name="action">
+    <input type="submit" value="Cancel" name="action">
+</form>
+

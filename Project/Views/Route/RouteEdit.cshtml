@@ -1,0 +1,48 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+@model System.Data.DataTable
+@{
+    ViewBag.Title = "RouteEdit";
+}
+
+<h2>RouteEdit</h2>
+<html>
+<head>
+
+</head>
+<body>
+<form id="frmEdit1" method="post" action=@Url.Action("UpdateRoute")>
+    <table border="2" cellpadding="2">
+
+        <tr>
+            <td> Route Number: </td>
+            <td><input type="text" name="txtrootnumber" value="@Model.Rows[0]["RootNumber"]" /> </td>
+        </tr>
+        <tr>
+            <td> Vehicle Number: </td>
+            <td><input type="text" name="txtvehiclenumber" value="@Model.Rows[0]["VehicleNumber"]"/> </td>
+        </tr>
+        <tr>
+            <td>  Stop1: </td>
+            <td><input type="text" name="txtstop1" value="@Model.Rows[0]["Stop1"]" /> </td>
+        </tr>
+        <tr>
+            <td>Stop2:</td>
+            <td><input type="text" name="txtstop2" value="@Model.Rows[0]["Stop2"]" /> </td>
+        </tr>
+        <tr>
+            <td> Stop3: </td>
+            <td><input type="text" name="txtstop3" value="@Model.Rows[0]["Stop3"]" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="submit" value="Submit" name="action"> </td>
+            <td><input type="submit" value="Cancel" name="action"> </td>
+        </tr>
+
+
+    </table>
+</form>
+
+</body>
+</html>
+

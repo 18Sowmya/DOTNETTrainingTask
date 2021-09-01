@@ -1,0 +1,69 @@
+﻿@model TransportProject.Admin
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<html>
+<head>
+    <tile></tile>
+    <style>
+        #LoginDiv{
+            position:absolute;
+            left:40%;
+            top:40%;
+            border:1px solid black;
+            padding: 10px 10px;
+        }
+        .field-validation-error{
+            color:red
+        }
+    </style>
+</head>
+<body>
+    <div id="LoginDiv">
+        @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
+        {
+            <table>
+                @*<tr>
+                        <td></td>
+                        <td style="text-decoration:underline">ADMIN </td>
+                    </tr>*@
+                <tr>
+                    <td>@Html.LabelFor(m => m.Username)</td>
+                    <td>@Html.TextBoxFor(m => m.Username)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(m => m.Username)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Password)</td>
+                    <td>@Html.PasswordFor(m => m.Password)</td> @*TextBoxFor not working*@
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(m => m.Password)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label class="field-validation-error"> @Html.DisplayFor(m => m.LoginErrorMessage)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Login" />
+                        <input type="reset" vakye="Reset" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

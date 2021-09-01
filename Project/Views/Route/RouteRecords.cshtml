@@ -1,0 +1,47 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+@model System.Data.DataTable
+@{
+    ViewBag.Title = "RouteRecords";
+}
+
+<h2>RouteRecords</h2>
+
+<html>
+<head>
+
+</head>
+
+<body>
+    <table border="2" cellpadding="2">
+        <thead>
+
+
+            <tr>
+                <td>RoutetNumber</td>
+                <td>VehicleNumber</td>
+                <td>Stop1</td>
+                <td>Stop2</td>
+                <td>Stop3</td>
+
+            </tr>
+        </thead>
+        @foreach (DataRow dr in Model.Rows)
+        {
+            <tr>
+                <td>@dr["RootNumber"].ToString()</td>
+                <td>@dr["VehicleNumber"].ToString()</td>
+                <td>@dr["Stop1"].ToString()</td>
+                <td>@dr["Stop2"].ToString()</td>
+                <td>@dr["Stop3"].ToString()</td>
+
+                <td>@Html.ActionLink("Edit", "RouteEdit", new { RootNumber = dr["RootNumber"].ToString() })</td>
+
+            </tr>
+        }
+    </table>
+
+
+</body>
+</html>
+

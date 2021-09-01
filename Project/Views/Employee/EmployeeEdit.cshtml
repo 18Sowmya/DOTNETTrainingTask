@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "EmployeeEdit";
+}
+
+<h2>EmployeeEdit</h2>
+
+<form id="frmEdit1" method="post" action=@Url.Action("UpdateEmployee")>
+
+    <table border="2" cellpadding="2">
+        <tr>
+            <td> Employee ID:</td>
+            <td><input type="text" name="txtemployeeid" value="@Model.Rows[0]["EmployeeId"]" /></td>
+        <tr />
+        <tr>
+            <td>
+
+                Employee Name:
+            </td>
+            <td>
+                <input type="text" name="txtemployeename" value="@Model.Rows[0]["EmployeeName"]" />
+            </td>
+        <tr />
+        <tr>
+            <td>
+
+        Age:</td>
+        
+            <td>
+                <input type="text" name="txtage" value="@Model.Rows[0]["Age"]" />
+            </td>
+        <tr />
+        <tr>
+            <td>
+                Location:
+            </td>
+            <td>
+                <input type="text" name="txtlocations" value="@Model.Rows[0]["Locations"]" />
+            </td>
+        <tr />
+        <tr>
+            <td>
+                Phone:
+            </td>
+            <td>
+                <input type="text" name="txtphone" value="@Model.Rows[0]["Phone"]" />
+            </td>
+        <tr />
+        <tr>
+            <td>Vehicle ID:</td>
+            <td>
+                <input type="text" name="txtvehicleid" value="@Model.Rows[0]["VehicleID"]" />
+            </td>
+        </tr>
+        <tr />
+        <tr>
+            >
+            <td><input type="submit" value="Submit" name="action"></td>
+            <td><input type="submit" value="Cancel" name="action"></td>
+        </tr>
+    </table>
+</form>
