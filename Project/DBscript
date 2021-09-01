@@ -1,0 +1,59 @@
+--create database Project
+
+use  Project
+
+create table Vehicle(VehicleNumber int,
+Capacity int,
+AvailableSeats int,
+IsOperable bit,
+Constraint PK_VehicleNumber Primary Key(VehicleNumber)
+)
+
+alter table Vehicle alter column IsOperable varchar(10)
+
+select * from Vehicle
+
+create table RouteInfo(RootNumber int,
+VehicleNumber int,
+Stop1 varchar(50),
+Stop2 varchar(50),
+Stop3 varchar(50),
+Constraint PK_RootNumber Primary Key(RootNumber),
+Constraint FK_VehicleNumber Foreign Key(VehicleNumber) references Vehicle(VehicleNumber)
+)
+
+select * from RouteInfo
+
+create table Employee(EmployeeId int,
+EmployeeName varchar(30),
+Age int,
+Locations varchar(50),
+Phone varchar,
+VehicleID int,
+Constraint PK_EmployeeId Primary key(EmployeeId),
+Constraint FK_VehicleID Foreign Key(VehicleID) references Vehicle(VehicleNumber)
+)
+
+alter table Employee alter column Phone varchar(10)
+select * from Employee
+
+
+select employee.VehicleID, RouteInfo.VehicleNumber from Employee
+	 employee join RouteInfo 
+	on RouteInfo.Stop1=Employee.locations
+	or RouteInfo.Stop2=Employee.locations
+	or RouteInfo.Stop3=Employee.locations where Employee.VehicleID=0 
+
+create database Details
+use Details
+create table Admin(Userid int,
+Username varchar(20), 
+Password varchar(20),
+Constraint PK_Userid Primary Key (Userid))
+insert Admin values(1,'admin', 'admin@123')
+
+select * from Admin
+
+select * from Vehicle
+select * from Employee
+select * from RouteInfo
