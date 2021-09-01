@@ -12,7 +12,7 @@ namespace TransportProject.Models
         SqlConnection con;
         public DataModel()
         {
-            con = new SqlConnection("Data source=SOWMYA-L\\MSSQLSERVER2017; database=Project; user id=sa; password=sowmyal");
+            con = new SqlConnection("Data source=");
 
         }
         public DataTable GetVehicle()
